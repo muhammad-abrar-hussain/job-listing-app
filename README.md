@@ -1,5 +1,8 @@
 # 🧰 Job Listing Application (Flask + PostgreSQL + React + MUI)
 
+> 🎥 [Demo Video](https://www.loom.com/share/c59f60f7abfc43bb9dd21c2cb076376e?sid=4b15a43d-81a8-458d-9f7b-abd4dd81be8a) &nbsp;&nbsp;
+> 🌍 [Live Deployment](https://your-deployed-site-link.com)
+
 This is a **full-stack job listing application** built with:
 
 - **Flask** (Python) for backend RESTful APIs  
