@@ -1,4 +1,9 @@
-.venv
-.env
+backend/.venv
+backend/.env
 __pycache__/
 .idea/
+
+
+frontend/jobBox/node_modules/
+frontend/jobBox/.env
+frontend/jobBox/dist/

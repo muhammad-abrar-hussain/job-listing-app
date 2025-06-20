@@ -9,20 +9,34 @@ This is a backend RESTful API for a Job Listing application built with **Flask**
 ```bash
 job_listing_app/
 │
-├── app/
-│   ├── __init__.py          # Initialize app and extensions
-│   ├── models.py            # SQLAlchemy models
-│   ├── routes/
+├── backend/
+│   ├── app/
 │   │   ├── __init__.py
-│   │   └── jobs.py          # Job routes
-│   ├── schemas.py           # Marshmallow schemas (optional)
-│   └── utils/               # Helper functions
+│   │   ├── extensions.py
+│   │   ├── models.py
+│   │   ├── routes/
+│   │   │   ├── __init__.py
+│   │   │   └── jobs.py
+│   │   └── schemas.py
+│   ├── migrations/
+│   ├── config.py
+│   ├── run.py
+│   ├── .env
+│   └── requirements.txt
 │
-├── migrations/              # Flask-Migrate files
-├── config.py                # Config settings
-├── run.py                   # Run the app
-├── .env                     # Environment variables
-└── requirements.txt
+├── frontend/
+│   └── jobBox/
+│       ├── public/
+│       ├── src/
+│       │   ├── components/
+│       │   ├── pages/
+│       │   ├── App.js
+│       │   ├── index.js
+│       │   └── api.js
+│       ├── .env
+│       └── package.json
+│
+└── README.md
 ```
 
 
@@ -72,7 +86,7 @@ flask run
 ```
 or
 ```bash
-python run.py
+python main.py
 ```
 ## 📫 API Endpoints
 | Method | Endpoint         | Description          |
