@@ -1,4 +1,3 @@
-# app/routes/jobs.py
 from flask import Blueprint, request, jsonify
 from app import db
 from app.models import Job
