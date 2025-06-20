@@ -5,6 +5,8 @@ This is a **full-stack job listing application** built with:
 - **Flask** (Python) for backend RESTful APIs  
 - **PostgreSQL** as the database  
 - **React + TypeScript** and **Material UI (MUI)** for the frontend  
+- **Selenium** for scraping job listings from external sources  
+
 
 It supports full **CRUD**, **filtering**, **sorting**, **responsive UI**, and **snackbar/confirmation dialogs**.
 
@@ -24,6 +26,9 @@ job_listing_app/
 │   │   ├── extensions.py
 │   │   └── models.py
 │   ├── migrations/
+│   ├── scraper/
+│   │   ├── __init__.py
+│   │   └── scrape_jobs.py
 │   ├── config.py
 │   ├── main.py
 │   └── requirements.txt
@@ -124,6 +129,24 @@ GET /api/jobs?job_type=Full-time&location=Remote&tag=react&sort=posting_date_des
 ```
 
 ---
+## 🕸️ Scraper Setup & Usage
+
+### 📌 Prerequisites
+
+- Google Chrome installed
+- Chromedriver matching your Chrome version installed and available in your system path
+
+### 🧰 1. Run Scraper Script
+
+```bash
+source .venv/bin/activate
+python scraper/scrape_jobs.py
+```
+
+- This script scrapes jobs from external sources (like `actuarylist.com`) using Selenium.
+- The scraped will be stored in database using SQLAlchemy.
+
+
 
 ## 🌐 Frontend Setup (`frontend/jobBox/`)
 
@@ -170,7 +193,7 @@ Open your browser at `http://localhost:5173`
 - SQLAlchemy
 - PostgreSQL
 - Flask-Migrate
-- Marshmallow (optional)
+- FSelenium
 
 ### 🎨 Frontend
 
