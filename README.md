@@ -1,6 +1,12 @@
-# Job Listing API (Flask + SQLAlchemy + PostgreSQL)
+# 🧰 Job Listing Application (Flask + PostgreSQL + React + MUI)
 
-This is a backend RESTful API for a Job Listing application built with **Flask**, **SQLAlchemy**, and **PostgreSQL**. It supports full CRUD functionality, filtering, sorting, and validation.
+This is a **full-stack job listing application** built with:
+
+- **Flask** (Python) for backend RESTful APIs  
+- **PostgreSQL** as the database  
+- **React + TypeScript** and **Material UI (MUI)** for the frontend  
+
+It supports full **CRUD**, **filtering**, **sorting**, **responsive UI**, and **snackbar/confirmation dialogs**.
 
 ---
 
@@ -11,86 +17,99 @@ job_listing_app/
 │
 ├── backend/
 │   ├── app/
-│   │   ├── __init__.py
-│   │   ├── extensions.py
-│   │   ├── models.py
 │   │   ├── routes/
 │   │   │   ├── __init__.py
 │   │   │   └── jobs.py
-│   │   └── schemas.py
+│   │   ├── __init__.py
+│   │   ├── extensions.py
+│   │   └── models.py
 │   ├── migrations/
 │   ├── config.py
-│   ├── run.py
-│   ├── .env
+│   ├── main.py
 │   └── requirements.txt
 │
 ├── frontend/
 │   └── jobBox/
 │       ├── public/
 │       ├── src/
+│       │   ├── api/   
 │       │   ├── components/
+│       │   ├── context/
 │       │   ├── pages/
-│       │   ├── App.js
-│       │   ├── index.js
-│       │   └── api.js
-│       ├── .env
+│       │   ├── App.jsx
+│       │   └── main.jsx
 │       └── package.json
 │
+├── .gitignore
 └── README.md
 ```
 
-
 ---
 
-## ⚙️ Setup Instructions
+## 🧪 Backend Setup (`backend/`)
 
-### 1. 📦 Create and Activate Virtual Environment
+### 📦 1. Create and Activate Virtual Environment
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-### 2. 📥 Install Dependencies
+
+### 📥 2. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. 🔐 Environment Variables
-Create a .env file in the root directory with your database URL:
-```bash
-DATABASE_URL=postgresql://username:password@localhost:5432/job_db
+### 🔐 3. Set Up Environment Variables
+
+Create a `.env` file in the `backend/` directory:
+
+```env
+DATABASE_URL=postgresql://username:passworenvd@localhost:5432/job_db
 FLASK_APP=main.py
 FLASK_ENV=development
 ```
 
-### 4. 🧱 Database Setup & Migrations
-Make sure PostgreSQL is running and a database is created.
-#### Initialize Migrations (Only Once)
+### 🧱 4. Database Setup & Migrations
+
+Make sure PostgreSQL is running and the `job_db` database exists.
+
+#### Initialize Migrations (First time only)
+
 ```bash
-DATABASE_URL=postgresql://username:password@localhost:5432/job_db
-FLASK_APP=main.py
-FLASK_ENV=development
+flask db init
 ```
-#### Create a Migration
+
+#### Create Migration
 
 ```bash
 flask db migrate -m "Initial migration"
 ```
+
 #### Apply Migration to Database
-```bash 
+
+```bash
 flask db upgrade
 ```
-### 🚀 Run the Flask Server
+
+### 🚀 5. Run the Flask Server
+
 ```bash
 flask run
 ```
-or
+
+Or:
+
 ```bash
 python main.py
 ```
-## 📫 API Endpoints
+
+### 📫 API Endpoints
+
 | Method | Endpoint         | Description          |
-| ------ | ---------------- | -------------------- |
+|--------|------------------|----------------------|
 | GET    | `/api/jobs/`     | List all jobs        |
 | POST   | `/api/jobs/`     | Create a new job     |
 | GET    | `/api/jobs/<id>` | Get job by ID        |
@@ -98,15 +117,64 @@ python main.py
 | PATCH  | `/api/jobs/<id>` | Update job (partial) |
 | DELETE | `/api/jobs/<id>` | Delete a job         |
 
-Supports filtering and sorting by query parameters:
+Supports **filtering and sorting**:
+
+```http
+GET /api/jobs?job_type=Full-time&location=Remote&tag=react&sort=posting_date_desc
+```
+
+---
+
+## 🌐 Frontend Setup (`frontend/jobBox/`)
+
+### 📍 1. Navigate to Frontend Folder
 
 ```bash
-GET /api/jobs?job_type=Full-time&location=Remote&sort=posted_date_desc
+cd frontend/jobBox
 ```
+
+### 📥 2. Install Node.js Dependencies
+
+Make sure Node.js and npm are installed, then run:
+
+```bash
+npm install
+```
+
+### ⚙️ 3. Setup Environment Variables
+
+Create a `.env` file in the `frontend/jobBox/` folder:
+
+```env
+VITE_API_URL=http://localhost:5000/api/jobs
+```
+
+> Adjust the URL if your backend runs on a different host or port.
+
+### 🚀 4. Run the Development Server
+
+```bash
+npm run dev
+```
+
+Open your browser at `http://localhost:5173`
+
+---
+
 ## 🛠 Tech Stack
+
+### 🔗 Backend
+
 - Python 3.10+
 - Flask
 - SQLAlchemy
-- Flask-Migrate (Alembic)
 - PostgreSQL
-- Marshmallow (optional, for schemas)
+- Flask-Migrate
+- Marshmallow (optional)
+
+### 🎨 Frontend
+
+- React + TypeScript
+- Material UI (MUI)
+- Axios
+- React Router
