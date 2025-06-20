@@ -149,7 +149,7 @@ python scraper/scrape_jobs.py
 - This script scrapes jobs from external sources (like `actuarylist.com`) using Selenium.
 - The scraped will be stored in database using SQLAlchemy.
 
-
+---
 
 ## 🌐 Frontend Setup (`frontend/jobBox/`)
 
